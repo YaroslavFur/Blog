@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ .bodyStyle {
+background-color: rgb(200, 255, 255);
+text-align: left;
+padding: 5%;
+ }
