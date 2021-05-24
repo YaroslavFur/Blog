@@ -1,7 +1,7 @@
 <center>
   <h1>Simple<span class="badge badge-success">Blog</span></h1>
   <br>
-  <h3>Posted articles: <%= Article.public_count %></h3>
+  <h3>Posted articles: <%= Article.count %></h3>
   <%= button_to "New Post", new_article_path, :method => :get, :class => "btn btn-info" %>
   </div>
 

@@ -1,16 +1,26 @@
 <h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
+<p class="alert alert-light">
+<%= @article.body %>
+</p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group mr-2" role="group">
+    <%= button_to "Back", articles_path, :method => :get, :class => "btn btn-secondary" %>
+  </div>
+  <div class="btn-group" role="group">
+    <%= button_to "Edit", edit_article_path(@article), :method => :get, :class => "btn btn-warning" %>
+    <%= button_to "Delete", article_path(@article), :method => :delete, :data => { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+  </div>
+</div>
+<br> <br> <br>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<div class="alert alert-secondary" style="padding-right: 50%">
+  <h5>Add a comment:</h5>
+  <%= render 'comments/form' %>
+</div>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<% if @article.comments.all.count > 0%>
+<br><h2>Comments</h2><br>
+<%= render @article.comments%>
+<% end %>
